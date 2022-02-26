@@ -5,6 +5,8 @@
       <map>
         <entry key="app/src/main/res/drawable/custom_round_layout.xml" value="0.1175" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/activity_setting.xml" value="0.21965579710144928" />
+        <entry key="app/src/main/res/layout/item_setting_recycler_view.xml" value="0.21965579710144928" />
         <entry key="app/src/main/res/layout/menu_items.xml" value="0.20471014492753623" />
       </map>
     </option>
