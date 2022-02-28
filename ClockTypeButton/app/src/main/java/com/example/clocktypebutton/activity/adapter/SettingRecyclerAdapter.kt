@@ -1,15 +1,20 @@
 package com.example.clocktypebutton.activity.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clocktypebutton.R
 import com.example.clocktypebutton.activity.dataclass.SettingList
 
-class SettingRecyclerAdapter(private val items : ArrayList<SettingList>) :
+class SettingRecyclerAdapter(private val context: Context) :
     RecyclerView.Adapter<SettingRecyclerAdapter.ViewHolder>() {
+
+    var items = mutableListOf<SettingList>()
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -19,7 +24,7 @@ class SettingRecyclerAdapter(private val items : ArrayList<SettingList>) :
     }
 
     override fun onBindViewHolder(holder: SettingRecyclerAdapter.ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.bind(items[position])
     }
 
     override fun getItemCount(): Int {
@@ -27,6 +32,11 @@ class SettingRecyclerAdapter(private val items : ArrayList<SettingList>) :
     }
 
     inner class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-        val settingMenuTitle : TextView = v.findViewById(R.id.settingMenuTitle)
+        private val settingMenuTitle : TextView = v.findViewById(R.id.settingMenuTitle)
+
+        fun bind(item : SettingList) {
+            settingMenuTitle.text = item.settingName
+        }
+
     }
 }

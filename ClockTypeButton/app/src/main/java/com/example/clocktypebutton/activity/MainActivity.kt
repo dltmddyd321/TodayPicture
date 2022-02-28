@@ -2,6 +2,7 @@ package com.example.clocktypebutton.activity
 
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -34,6 +35,13 @@ class MainActivity : AppCompatActivity() {
         menuTitleList.add("Camera")
         menuTitleList.add("Under")
         menuTitleList.add("Good")
+
+        settingBtn = findViewById(R.id.settingBtn)
+
+        settingBtn.setOnClickListener {
+            val intent = Intent(this, SettingActivity::class.java)
+            startActivity(intent)
+        }
 
         findView()
         setListener()
