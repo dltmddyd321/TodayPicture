@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">ClockTypeButton</string>
+    <string name="background_setting">배경 설정</string>
+    <string name="delete_record">기록 삭제</string>
+    <string name="version_info">버전 정보</string>
 </resources>

@@ -15,6 +15,16 @@ class SettingRecyclerAdapter(private val context: Context) :
 
     var items = mutableListOf<SettingList>()
 
+    interface OnItemClickListener {
+        fun onItemClick(v : View, item : SettingList, position: Int)
+    }
+
+    private var listener : OnItemClickListener?= null
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        this.listener = listener
+    }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -36,7 +46,13 @@ class SettingRecyclerAdapter(private val context: Context) :
 
         fun bind(item : SettingList) {
             settingMenuTitle.text = item.settingName
-        }
 
+            val position = adapterPosition
+            if(position!= RecyclerView.NO_POSITION) {
+                itemView.setOnClickListener {
+                    listener?.onItemClick(itemView, item, position)
+                }
+            }
+        }
     }
 }

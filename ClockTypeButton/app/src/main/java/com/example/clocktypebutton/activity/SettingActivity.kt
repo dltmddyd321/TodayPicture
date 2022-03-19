@@ -3,12 +3,15 @@ package com.example.clocktypebutton.activity
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clocktypebutton.R
 import com.example.clocktypebutton.activity.adapter.SettingRecyclerAdapter
 import com.example.clocktypebutton.activity.dataclass.SettingList
 import com.example.clocktypebutton.activity.util.HorizontalItemDecorator
 import com.example.clocktypebutton.activity.util.VerticalItemDecorator
+import kotlinx.android.synthetic.main.activity_setting.*
 
 class SettingActivity : AppCompatActivity() {
     lateinit var settingRecyclerAdapter: SettingRecyclerAdapter
@@ -27,11 +30,16 @@ class SettingActivity : AppCompatActivity() {
     private fun initView() {
         settingRecyclerAdapter = SettingRecyclerAdapter(this)
         settingRecyclerView.adapter = settingRecyclerAdapter
+        settingRecyclerAdapter.setOnItemClickListener(object : SettingRecyclerAdapter.OnItemClickListener {
+            override fun onItemClick(v: View, item: SettingList, position: Int) {
+                Toast.makeText(this@SettingActivity, "제목 : ${item.settingName}", Toast.LENGTH_SHORT).show()
+            }
+        })
 
         settingMenuList.apply {
-            add(SettingList("배경 설정"))
-            add(SettingList("기록 삭제"))
-            add(SettingList("버전 정보"))
+            add(SettingList(getString(R.string.background_setting)))
+            add(SettingList(getString(R.string.delete_record)))
+            add(SettingList(getString(R.string.version_info)))
 
             settingRecyclerAdapter.items = settingMenuList
             settingRecyclerAdapter.notifyDataSetChanged()

@@ -177,8 +177,9 @@
             android:elevation="5dp"
             android:padding="4dp"
             android:scaleType="fitCenter"
-            android:src="@mipmap/ic_launcher_round"
-            android:translationZ="5dp" />
+            android:src="@drawable/ic_baseline_stop_circle_24"
+            android:translationZ="5dp"
+            app:tint="@color/black" />
 
     </FrameLayout>
 
